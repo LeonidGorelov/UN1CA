@@ -31,15 +31,15 @@ jobs:
           sudo docker image prune --all --force
           sudo docker builder prune -a
 
-#      - name: Free disk space (2/3)
-#        uses: jlumbroso/free-disk-space@main
-#        with:
-#          tool-cache: true
+      - name: Free disk space (2/3)
+        uses: jlumbroso/free-disk-space@main
+        with:
+          tool-cache: true
 
-#      - name: Free disk space (3/3)
-#        uses: rokibhasansagar/slimhub_actions@main
-#        with:
-#          retain: 'compiler_cmake'
+      - name: Free disk space (3/3)
+        uses: rokibhasansagar/slimhub_actions@main
+        with:
+          retain: 'compiler_cmake'
 
       - name: Set up build environment
         run: |
@@ -59,11 +59,6 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
-
-      - name: Check file existence
-        run: |
-          ls -ld external || echo "Папка external НЕ СУЩЕСТВУЕТ"
-          ls -l external/make.sh || echo "Файл make.sh НЕ НАЙДЕН"
 
       - name: Build dependencies
         run: |

@@ -1,1 +1,1 @@
-../external/make.sh
+./external/make.sh
