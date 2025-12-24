@@ -60,6 +60,14 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
+      - name: Debug external directory
+        run: |
+          ls -R external/
+          if [ ! -d "external/android-tools" ]; then
+            echo "ERROR: android-tools is still missing!"
+            exit 1
+          fi
+
       - name: Build dependencies
         run: |
           source ./buildenv.sh ${{ matrix.target }}
