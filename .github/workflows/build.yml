@@ -68,9 +68,11 @@ jobs:
             exit 1
           fi
 
+      - name: Make gradlew executable
+        run: find . -name "gradlew" -exec chmod +x {} +
+
       - name: Build dependencies
         run: |
-	  chmod +x ./gradlew
           source ./buildenv.sh ${{ matrix.target }}
           ./scripts/build_dependencies.sh
 
