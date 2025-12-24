@@ -70,6 +70,7 @@ jobs:
 
       - name: Build dependencies
         run: |
+	  chmod +x ./gradlew
           source ./buildenv.sh ${{ matrix.target }}
           ./scripts/build_dependencies.sh
 
