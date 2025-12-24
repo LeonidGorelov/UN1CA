@@ -120,9 +120,6 @@ include(CMakeLists.partition.txt)
 include(CMakeLists.mkbootimg.txt)
 include(CMakeLists.libufdt.txt)
 include(CMakeLists.avb.txt)
-include(CMakeLists.zipalign.txt)
-include(CMakeLists.mkbootfs.txt)
-include(CMakeLists.fec.txt)
 
 # Targets which should be installed by `make install`.
 install(TARGETS
@@ -130,7 +127,6 @@ install(TARGETS
 	adb
 	append2simg
 	fastboot
-	fec
 	img2simg
 	lpadd
 	lpdump
@@ -138,11 +134,9 @@ install(TARGETS
 	lpmake
 	lpunpack
 	make_f2fs
-	mkbootfs
 	sload_f2fs
 	simg2img
 	ext2simg
-	zipalign
 	DESTINATION bin)
 
 if(NOT APPLE)
