@@ -2,6 +2,9 @@ name: Build
 
 on:
   workflow_dispatch:
+  push:
+   branches:
+    - main
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -56,6 +59,11 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
+
+      - name: Check file existence
+        run: |
+          ls -ld external || echo "Папка external НЕ СУЩЕСТВУЕТ"
+          ls -l external/make.sh || echo "Файл make.sh НЕ НАЙДЕН"
 
       - name: Build dependencies
         run: |
